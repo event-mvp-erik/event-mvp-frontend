@@ -1,50 +1,37 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export type EventDto = {
-    id: number;
-    name: string;
-    date: string;
-    location: string;
-    description: string;
+type Event = {
+  id: number;
+  name: string;
+  date: string;
 };
 
 const API_URL = "https://localhost:7177/api/events";
 
-export const EventList: React.FC = () => {
-    const [events, setEvents] = useState<EventDto[]>([]);
-    const [selected, setSelected] = useState<EventDto | null>(null);
+function EventList() {
+  const [events, setEvents] = useState<Event[]>([]);
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        axios.get<EventDto[]>(API_URL).then(res => {
-            setEvents(res.data);
-        });
-    }, []);
+  useEffect(() => {
+    axios.get(API_URL).then(res => setEvents(res.data));
+  }, []);
 
-    if (selected) {
-        return (
-            <div>
-                <button onClick={() => setSelected(null)}>Back</button>
-                <h2>{selected.name}</h2>
-                <p><b>Date:</b> {selected.date}</p>
-                <p><b>Location:</b> {selected.location}</p>
-                <p>{selected.description}</p>
-            </div>
-        );
-    }
+  const handleCardClick = (id: number) => {
+    navigate(`/event/${id}`);
+  };
 
-    return (
-        <div>
-            <h1>Events</h1>
-            <ul>
-                {events.map(ev => (
-                    <li key={ev.id}>
-                        <button onClick={() => setSelected(ev)}>
-                            {ev.name} ({ev.date})
-                        </button>
-                    </li>
-                ))}
-            </ul>
+  return (
+    <div className="event-grid">
+      {events.map(ev => (
+        <div className="event-card" key={ev.id} onClick={() => handleCardClick(ev.id)}>
+          <div className="event-title">{ev.name}</div>
+          <div className="event-date">{ev.date}</div>
         </div>
-    );
-};
+      ))}
+    </div>
+  );
+}
+
+export default EventList;
