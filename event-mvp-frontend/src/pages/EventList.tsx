@@ -10,6 +10,8 @@ type Event = {
 
 const API_URL = "https://localhost:7177/api/events";
 
+<button onClick={() => navigate("/create")}>+ Add Event</button>
+
 function EventList() {
   const [events, setEvents] = useState<Event[]>([]);
   const navigate = useNavigate();

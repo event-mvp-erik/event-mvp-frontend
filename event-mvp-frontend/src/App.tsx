@@ -1,6 +1,7 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import EventList from "./components/EventList";
-import EventDetails from "./components/EventDetails";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import EventList from "./pages/EventList";
+import EventDetails from "./pages/EventDetails";
+import CreateEvent from "./pages/CreateEvent";
 import "./App.css";
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
                 <div className="sidebar">
                     <div className="sidebar-logo">X</div>
                     <div className="sidebar-menu">
-                        <div className="sidebar-item active">Events</div>
+                        <Link to="/" className="sidebar-item">Events</Link>
+                        <Link to="/create" className="sidebar-item">+ Create Event</Link>
                     </div>
                 </div>
                 <div className="content">
@@ -22,6 +24,7 @@ function App() {
                             </>
                         } />
                         <Route path="/event/:id" element={<EventDetails />} />
+                        <Route path="/create" element={<CreateEvent />} />
                     </Routes>
                 </div>
             </div>
