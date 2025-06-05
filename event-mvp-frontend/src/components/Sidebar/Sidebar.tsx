@@ -1,32 +1,31 @@
-import { Link, useLocation } from "react-router-dom";
-import { CalendarDays, Home, ListTodo, Ticket } from "lucide-react";
+import { Home, Ticket, Calendar, ClipboardList } from "lucide-react";
+import { NavLink } from "react-router-dom";
 import styles from "./Sidebar.module.css";
+import logo from "../../assets/ventixe-logo.svg";
 
 function Sidebar() {
-    const location = useLocation();
-
-    const navItems = [
-        { name: "Dashboard", path: "/", icon: <Home size={20} /> },
-        { name: "Bookings", path: "/book", icon: <Ticket size={20} /> },
-        { name: "Events", path: "/events", icon: <CalendarDays size={20} /> },
-        { name: "Admin: Add Event", path: "/create", icon: <ListTodo size={20} /> }
-    ];
-
     return (
         <div className={styles.sidebar}>
-            <div className={styles.logo}>X</div>
+            <div className={styles.logoContainer}>
+                <img src={logo} alt="Ventixe Logo" className={styles.logo} />
+            </div>
             <nav className={styles.nav}>
-                {navItems.map((item) => (
-                    <Link
-                        key={item.name}
-                        to={item.path}
-                        className={`${styles.navItem} ${location.pathname === item.path ? styles.active : ""
-                            }`}
-                    >
-                        {item.icon}
-                        <span>{item.name}</span>
-                    </Link>
-                ))}
+                <NavLink to="/" className={styles.navItem}>
+                    <Home size={20} />
+                    Dashboard
+                </NavLink>
+                <NavLink to="/book" className={styles.navItem}>
+                    <Ticket size={20} />
+                    Bookings
+                </NavLink>
+                <NavLink to="/events" className={styles.navItem}>
+                    <Calendar size={20} />
+                    Events
+                </NavLink>
+                <NavLink to="/create" className={`${styles.navItem} ${styles.adminLink}`}>
+                    <ClipboardList size={20} />
+                    Admin: Add Event
+                </NavLink>
             </nav>
         </div>
     );

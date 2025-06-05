@@ -1,0 +1,61 @@
+.dashboard {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px;
+    color: #232345;
+}
+
+.dashboard-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 32px;
+}
+
+.dashboard-cards {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.card {
+    flex: 1;
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(175, 147, 255, 0.12);
+}
+
+.card-label {
+    font-size: 14px;
+    color: #7a7a9d;
+    margin-bottom: 10px;
+}
+
+.card-value {
+    font-size: 28px;
+    font-weight: 600;
+    color: #a87ffa;
+}
+
+.dashboard-section h2 {
+    font-size: 22px;
+    margin-bottom: 16px;
+}
+
+.event-preview {
+    background: white;
+    padding: 20px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+}
+
+.event-preview-title {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.event-preview-info {
+    font-size: 14px;
+    color: #7a7a9d;
+}

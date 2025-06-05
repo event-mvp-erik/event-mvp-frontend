@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "../styles/CreateBooking.css";
 
 type Event = {
     id: number;
@@ -36,7 +37,7 @@ function CreateBooking() {
     };
 
     return (
-        <form onSubmit={handleSubmit} style={{ maxWidth: 500, margin: "40px auto", display: "flex", flexDirection: "column", gap: 16 }}>
+        <form onSubmit={handleSubmit} className="booking-form">
             <select value={eventId ?? ""} onChange={e => setEventId(Number(e.target.value))} required>
                 <option value="">Select Event</option>
                 {events.map(ev => (
@@ -48,15 +49,7 @@ function CreateBooking() {
             <input value={attendeeName} onChange={e => setAttendeeName(e.target.value)} placeholder="Your name" required />
             <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" required />
             <input type="number" value={numberOfSeats} onChange={e => setNumberOfSeats(Number(e.target.value))} placeholder="Seats" required />
-            <button type="submit" style={{
-                background: "#a87ffa",
-                color: "#fff",
-                border: "none",
-                padding: "12px 20px",
-                fontWeight: 600,
-                borderRadius: 8,
-                cursor: "pointer"
-            }}>Book Event</button>
+            <button type="submit">Book Event</button>
         </form>
     );
 }

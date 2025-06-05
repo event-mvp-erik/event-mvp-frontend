@@ -1,9 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../styles/CreateEvent.css";
 
 function CreateEvent() {
-    const [name, setName] = useState("");
+    const [title, setTitle] = useState("");
     const [date, setDate] = useState("");
     const [location, setLocation] = useState("");
     const [description, setDescription] = useState("");
@@ -11,25 +12,19 @@ function CreateEvent() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        try {
-            await axios.post("http://localhost:5299/api/events", {
-                title: name,
-                date,
-                location,
-                description,
-            });
-            navigate("/");
-        } catch (err) {
-            console.error("Error creating event", err);
-        }
+        await axios.post("http://localhost:5299/api/events", {
+            title, date, location, description
+        });
+        navigate("/events");
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input value={name} onChange={e => setName(e.target.value)} placeholder="Title" required />
-            <input value={date} onChange={e => setDate(e.target.value)} placeholder="Date" required />
-            <input value={location} onChange={e => setLocation(e.target.value)} placeholder="Location" />
-            <textarea value={description} onChange={e => setDescription(e.target.value)} placeholder="Description" />
+        <form onSubmit={handleSubmit} className="create-event-form">
+            <h2>Create New Event</h2>
+            <input type="text" placeholder="Title" value={title} onChange={e => setTitle(e.target.value)} required />
+            <input type="date" value={date} onChange={e => setDate(e.target.value)} required />
+            <input type="text" placeholder="Location" value={location} onChange={e => setLocation(e.target.value)} />
+            <textarea placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} />
             <button type="submit">Create Event</button>
         </form>
     );

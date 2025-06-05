@@ -1,0 +1,39 @@
+.create-event-form {
+    max-width: 600px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+    .create-event-form h2 {
+        font-size: 28px;
+        font-weight: 700;
+        color: #37437d;
+    }
+
+    .create-event-form input,
+    .create-event-form textarea {
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 16px;
+        background-color: #ffffff;
+        color: #37437d;
+    }
+
+    .create-event-form textarea {
+        height: 100px;
+    }
+
+    .create-event-form button {
+        background: #f26cf9;
+        color: white;
+        padding: 14px;
+        font-weight: 600;
+        font-size: 16px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        align-self: flex-start;
+    }

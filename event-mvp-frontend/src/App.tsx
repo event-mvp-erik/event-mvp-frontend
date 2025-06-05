@@ -4,6 +4,7 @@ import EventDetails from "./pages/EventDetails";
 import CreateEvent from "./pages/CreateEvent";
 import CreateBooking from "./pages/CreateBooking";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Dashboard from "./pages/Dashboard";
 import "./App.css";
 
 function App() {
@@ -13,12 +14,8 @@ function App() {
                 <Sidebar />
                 <div style={{ flex: 1, padding: "32px" }}>
                     <Routes>
-                        <Route path="/" element={
-                            <>
-                                <h1 className="page-title">Events</h1>
-                                <EventList />
-                            </>
-                        } />
+                        <Route path="/" element={<Dashboard />} />
+                        <Route path="/events" element={<EventList />} />
                         <Route path="/event/:id" element={<EventDetails />} />
                         <Route path="/create" element={<CreateEvent />} />
                         <Route path="/book" element={<CreateBooking />} />

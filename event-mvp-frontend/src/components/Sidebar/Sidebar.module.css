@@ -1,25 +1,25 @@
 .sidebar {
-    background: #f4edff;
     width: 200px;
-    height: 100vh;
-    padding: 24px 12px;
+    background-color: #f5f1fc;
+    padding: 32px 16px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     gap: 24px;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.04);
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 12px;
+    height: 60px;
 }
 
 .logo {
-    font-size: 32px;
-    font-weight: bold;
-    color: white;
-    background: #a87ffa;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    margin-bottom: 24px;
+    width: 120px;
+    height: auto;
 }
 
 .nav {
@@ -32,19 +32,25 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    font-weight: 600;
-    font-size: 15px;
-    color: #a87ffa;
-    padding: 8px 12px;
-    border-radius: 10px;
     text-decoration: none;
+    font-weight: 500;
+    color: #37437d;
+    font-size: 15px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: background 0.2s;
 }
 
     .navItem:hover {
-        background: #ece2ff;
+        background-color: #e0e0e1;
     }
 
-.active {
-    background: #d9c1ff;
-    color: #232345;
+    .navItem.active {
+        background-color: #f26cf9;
+        color: white;
+    }
+
+.adminLink {
+    margin-top: 32px;
+    font-weight: 600;
 }
