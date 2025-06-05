@@ -1,21 +1,17 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import EventList from "./pages/EventList";
 import EventDetails from "./pages/EventDetails";
 import CreateEvent from "./pages/CreateEvent";
+import CreateBooking from "./pages/CreateBooking";
+import Sidebar from "./components/Sidebar/Sidebar";
 import "./App.css";
 
 function App() {
     return (
         <Router>
-            <div className="main-bg">
-                <div className="sidebar">
-                    <div className="sidebar-logo">X</div>
-                    <div className="sidebar-menu">
-                        <Link to="/" className="sidebar-item">Events</Link>
-                        <Link to="/create" className="sidebar-item">+ Create Event</Link>
-                    </div>
-                </div>
-                <div className="content">
+            <div style={{ display: "flex" }}>
+                <Sidebar />
+                <div style={{ flex: 1, padding: "32px" }}>
                     <Routes>
                         <Route path="/" element={
                             <>
@@ -25,6 +21,7 @@ function App() {
                         } />
                         <Route path="/event/:id" element={<EventDetails />} />
                         <Route path="/create" element={<CreateEvent />} />
+                        <Route path="/book" element={<CreateBooking />} />
                     </Routes>
                 </div>
             </div>
