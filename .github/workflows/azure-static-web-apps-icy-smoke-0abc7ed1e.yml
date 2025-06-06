@@ -29,7 +29,7 @@ jobs:
           app_location: "event-mvp-frontend"
           api_location: ""
           output_location: "event-mvp-frontend/build"
-          config_file_location: "event-mvp-frontend/staticwebapp.config.json"
+          config_file_location: "event-mvp-frontend"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
