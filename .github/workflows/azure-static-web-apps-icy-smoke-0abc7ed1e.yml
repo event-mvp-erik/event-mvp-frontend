@@ -28,7 +28,7 @@ jobs:
           action: "upload"
           app_location: "event-mvp-frontend"
           api_location: ""
-          output_location: "event-mvp-frontend"
+          output_location: "build"
           config_file_location: "event-mvp-frontend"
 
   close_pull_request_job:
