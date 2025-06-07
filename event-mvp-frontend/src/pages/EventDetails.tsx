@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { apiUrls } from "../config";
 
 type Event = {
     id: number;
@@ -10,15 +11,13 @@ type Event = {
     description: string;
 };
 
-const API_URL = "http://localhost:5299/api/events";
-
 function EventDetails() {
     const { id } = useParams();
     const [event, setEvent] = useState<Event | null>(null);
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`${API_URL}/${id}`).then(res => setEvent(res.data));
+        axios.get(`${apiUrls.eventsApi}/events/${id}`).then(res => setEvent(res.data));
     }, [id]);
 
     if (!event) return <div>Loading...</div>;

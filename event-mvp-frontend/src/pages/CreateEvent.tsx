@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/CreateEvent.css";
+import { apiUrls } from "../config";
 
 function CreateEvent() {
     const [title, setTitle] = useState("");
@@ -12,7 +13,7 @@ function CreateEvent() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        await axios.post("http://localhost:5299/api/events", {
+        await axios.post(`${apiUrls.eventsApi}/events`, {
             title, date, location, description
         });
         navigate("/events");

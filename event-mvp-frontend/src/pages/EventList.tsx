@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { apiUrls } from "../config";
 
 type Event = {
     id: number;
@@ -14,7 +15,7 @@ function EventList() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:5299/api/events")
+            .get(`${apiUrls.eventsApi}/events`)
             .then(res => setEvents(res.data))
             .catch(err => {
                 console.error("Failed to fetch events:", err);

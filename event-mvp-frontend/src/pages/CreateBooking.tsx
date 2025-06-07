@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/CreateBooking.css";
+import { apiUrls } from "../config";
 
 type Event = {
     id: number;
@@ -16,7 +17,7 @@ function CreateBooking() {
     const [events, setEvents] = useState<Event[]>([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5299/api/events").then(res => setEvents(res.data));
+        axios.get(`${apiUrls.eventsApi}/events`).then(res => setEvents(res.data));
     }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -24,7 +25,7 @@ function CreateBooking() {
         if (!eventId) return alert("Please select an event.");
 
         try {
-            await axios.post("http://localhost:5203/api/bookings", {
+            await axios.post(`${apiUrls.bookingsApi}/bookings`, {
                 eventId,
                 attendeeName,
                 email,
