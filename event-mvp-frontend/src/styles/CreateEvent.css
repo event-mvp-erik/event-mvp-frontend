@@ -37,3 +37,14 @@
         cursor: pointer;
         align-self: flex-start;
     }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0);
+    opacity: 1;
+    cursor: pointer;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
