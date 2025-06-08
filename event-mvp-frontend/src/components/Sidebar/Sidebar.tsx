@@ -10,21 +10,26 @@ function Sidebar() {
                 <img src={logo} alt="Ventixe Logo" className={styles.logo} />
             </div>
             <nav className={styles.nav}>
-                <NavLink to="/" className={styles.navItem}>
-                    <Home size={20} />
-                    Dashboard
+                <NavLink to="/events" className={styles.navItem}>
+                    <Calendar size={20} />
+                    Upcoming Events
                 </NavLink>
                 <NavLink to="/book" className={styles.navItem}>
                     <Ticket size={20} />
-                    Bookings
+                    Book Event
                 </NavLink>
-                <NavLink to="/events" className={styles.navItem}>
-                    <Calendar size={20} />
-                    Events
+
+                <div className={styles.sectionLabel}>
+                    Admin Tools
+                </div>
+
+                <NavLink to="/" className={styles.navItem}>
+                    <Home size={20} />
+                    Overview        
                 </NavLink>
                 <NavLink to="/create" className={`${styles.navItem} ${styles.adminLink}`}>
                     <ClipboardList size={20} />
-                    Admin: Add Event
+                    Admin: Create Event
                 </NavLink>
             </nav>
         </div>

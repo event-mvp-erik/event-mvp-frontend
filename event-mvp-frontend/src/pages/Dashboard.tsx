@@ -24,11 +24,11 @@ function Dashboard() {
                 <h2>Upcoming</h2>
                 <div className="event-preview">
                     <div className="event-preview-title">Tech Meetup 2025</div>
-                    <div className="event-preview-info">July 4, 2025 — Gothenburg</div>
+                    <div className="event-preview-info">July 4, 2025 - Gothenburg</div>
                 </div>
                 <div className="event-preview">
-                    <div className="event-preview-title">React Conf</div>
-                    <div className="event-preview-info">August 18, 2025 — Stockholm</div>
+                    <div className="event-preview-title">React Conference</div>
+                    <div className="event-preview-info">August 18, 2025 - Stockholm</div>
                 </div>
             </div>
         </div>

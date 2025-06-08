@@ -13,7 +13,7 @@ function CreateBooking() {
     const [eventId, setEventId] = useState<number | null>(null);
     const [attendeeName, setAttendeeName] = useState("");
     const [email, setEmail] = useState("");
-    const [numberOfSeats, setNumberOfSeats] = useState(1);
+    const [numberOfSeats, setNumberOfSeats] = useState<number | "">("");
     const [events, setEvents] = useState<Event[]>([]);
 
     useEffect(() => {
@@ -49,7 +49,14 @@ function CreateBooking() {
             </select>
             <input value={attendeeName} onChange={e => setAttendeeName(e.target.value)} placeholder="Your name" required />
             <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" required />
-            <input type="number" value={numberOfSeats} onChange={e => setNumberOfSeats(Number(e.target.value))} placeholder="Seats" required />
+            <select value={numberOfSeats} onChange={e => setNumberOfSeats(Number(e.target.value))} required>
+                <option value="">Select number of seats</option>
+                {[...Array(10)].map((_, i) => (
+                    <option key={i + 1} value={i + 1}>
+                        {i + 1}
+                    </option>
+                ))}
+            </select>
             <button type="submit">Book Event</button>
         </form>
     );
